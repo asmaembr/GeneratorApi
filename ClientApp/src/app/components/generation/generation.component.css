@@ -1,0 +1,48 @@
+.input-group-text {
+  border: transparent !important;
+}
+
+i {
+  font-size: xx-large;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+
+.card {
+  height: 220px;
+  min-width: 400px;
+  align-items: center;
+  text-align: center;
+  background-color: #EAEAEA;
+  border: 0px transparent;
+  border-radius: 30px !important;
+}
+
+.card-body {
+  padding: 0px;
+  background-color: transparent;
+  border: 0px transparent;
+}
+
+.card-header {
+  margin: 0px;
+  background-color: transparent;
+  border: 0px transparent;
+}
+
+.card-footer {
+  margin: 0px;
+  background-color: transparent;
+  border: 0px transparent;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
