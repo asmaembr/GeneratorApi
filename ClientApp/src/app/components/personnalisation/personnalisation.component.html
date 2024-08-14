@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="form p-4 shadow-sm inner" style="width: 500px;" >
+      <form  #Personnalisation="ngForm" (ngSubmit)="onSubmit(Personnalisation)" *ngIf="modele">
+        <div style="padding: 6px; margin: 4px; overflow-y: auto;" *ngFor="let variable of variablesform; let i = index">
+          <label [for]="'formule' + i" class="form-label">{{variable.nom}}</label>
+          <input *ngIf="natures[variable.nature] === 'TEXTE'" [(ngModel)]="variable.formule" [name]="'formule' + i" class="form-control" type="text" [id]="'formule' + i" placeholder="Entrer la valeur" required />
+          <input *ngIf="natures[variable.nature] === 'DATE'" [(ngModel)]="variable.formule" [name]="'formule' + i" class="form-control" type="date" [id]="'formule' + i" placeholder="Entrer la valeur" required />
+          <input *ngIf="natures[variable.nature] === 'NOMBRE'" [(ngModel)]="variable.formule" [name]="'formule' + i" class="form-control" type="number" [id]="'formule' + i" placeholder="Entrer la valeur" required />
+        </div>        
+        <button type="submit" class="btn green w-100" [disabled]="Personnalisation.invalid">
+         Valider
+        </button>
+      </form>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3" style="border-radius: 20px;">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+  
