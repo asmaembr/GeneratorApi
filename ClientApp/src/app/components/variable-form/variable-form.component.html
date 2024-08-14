@@ -1,0 +1,64 @@
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="form p-4 shadow-sm inner" style="width: 700px;">
+      <form #variableForm="ngForm" (ngSubmit)="onSubmit(variableForm)" *ngIf="variable">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="nom" class="form-label">Nom</label>
+              <input [(ngModel)]="variable.nom" name="nom" class="form-control" type="text" id="nom" placeholder="Entrer un nom" required />
+            </div>
+            <div class="mb-3">
+                <label for="type" class="form-label">Type</label>
+                <select [(ngModel)]="variable.type" name="type" class="form-control" id="type" (change)="onTypeChange($event)" required>
+                  <option *ngFor="let option of types; let i = index" [ngValue]="i">{{ option }}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="categories" class="form-label">Categories</label>
+                <div *ngFor="let categorie of categories" class=" d-flex ">
+                  <input
+                  type="checkbox"
+                  class="form-check-input form-control me-2"
+                  (change)="onCheckboxChange($event, categorie.id)" 
+                  [checked]="variable.categories.includes(categorie.id)" 
+                  id="{{ categorie.id }}" 
+                  name="categories" required/>
+                  <label for="{{ categorie.id }}" class="mt-1">{{ categorie.nom }}</label>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+                <label for="formule" class="form-label">Formule</label>
+                <input [(ngModel)]="variable.formule" name="formule" class="form-control" type="text" id="formule" placeholder=" Entrer une formule"/>
+            </div>
+            <div class="mb-3">
+                <label for="nature" class="form-label">Nature</label>
+                <select [(ngModel)]="variable.nature" name="nature" class="form-control" id="nature" (change)="onNatureChange($event)" required>
+                  <option *ngFor="let nature of natures; let i = index" [ngValue]="i">{{ nature }}</option>
+                </select>
+            </div>
+            <div class="mb-3 d-flex">
+                <input 
+                [(ngModel)]="variable.publier" 
+                (change)="onPublierChange($event)"
+                [checked]="variable.publier"
+                name="publier" 
+                class="form-check-input form-control me-2"
+                type="checkbox" 
+                id="publier" />
+                <label for="publier" class="form-label mt-1 text-success ">Publier</label>
+            </div>
+            <label class="form-label text-danger">=> Garder la formule vide si vous voulez l'insertion de la valeur de la variable lors de la génération</label>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <button type="submit" class="btn green w-100" [disabled]="variableForm.invalid">{{ variable.id ? 'Mettre à jour' : 'Créer' }}</button>
+        </div>
+      </form>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3" style="border-radius: 20px;">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>

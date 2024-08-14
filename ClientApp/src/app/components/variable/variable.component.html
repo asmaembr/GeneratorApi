@@ -1,0 +1,50 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div class="d-flex justify-content-center flex-grow-1">
+        <div class="input-group" style="width: 300px;">
+          <input 
+            name="nom" 
+            class="form-control border border-success" 
+            type="text" 
+            id="nom" 
+            placeholder="Tapez un nom" 
+            required 
+            [(ngModel)]="searchQuery"
+          />
+          <span class="input-group-text bg-transparent">
+            <i class="fa fa-search text-black"></i>
+          </span>
+        </div>
+      </div>
+      <button class="btn green ms-3" [routerLink]="['Form']">Ajouter une Variable</button>
+    </div>
+    <div class="row">
+    <div class="col-md-3 mb-3" *ngFor="let variable of filteredItems">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <h5 class="card-title m-3">{{ variable.nom }}</h5> 
+            <i 
+              class="fa fa-check-circle"
+              [ngClass]="{'text-success': variable.publier, 'text-primary': !variable.publier}">
+           </i>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><strong>Type:</strong> {{ types[variable.type] }}</p>
+          <p class="card-text"><strong>Nature:</strong> {{ natures[variable.nature] }}</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn" [routerLink]="'Form/'+variable.id">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="btn" (click)="deleteVariable(variable.id)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div> 

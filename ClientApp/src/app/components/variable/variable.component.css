@@ -1,0 +1,40 @@
+.container {
+    padding: 20px;
+  }
+  
+  .input-group-text {
+  border: transparent  !important;
+  }
+  
+  i{
+    font-size: xx-large;
+  }
+  
+.card {
+  align-items: center;
+  text-align: center;
+  text-align: center;
+  background-color: #EAEAEA;
+  border: 0px  transparent;
+  border-radius: 30px !important;
+}
+.card-body {
+  padding: 0px;
+  background-color: transparent;
+  border: 0px  transparent;
+}
+
+.card-header {
+  margin: 0px;
+  background-color: transparent;
+  border: 0px  transparent;
+}
+
+.card-footer {
+  margin: 0px;
+  background-color: transparent;
+  border: 0px transparent;
+  display: flex;
+  justify-content: space-between; 
+  width: 100%; 
+}
