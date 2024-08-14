@@ -1,0 +1,21 @@
+<div class="d-flex align-items-center justify-content-center min-vh-100">
+  <div class="form p-4 shadow-sm inner" style=" width: 400px;">
+    <h2 class="text-center m-4">Se Connecter</h2>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <div class="m-4">
+        <label for="username" class="form-label">Username</label>
+        <input [(ngModel)]="model.username" name="username" class="form-control" type="text" id="username" placeholder="username" required />
+      </div>
+      <div class="m-4">
+        <label for="password" class="form-label">Password</label>
+        <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+        <input [(ngModel)]="model.password" name="password" class="form-control" type="{{type}}" id="password" placeholder="password" required />
+      </div>
+      <button type="submit" class="btn green w-100" [disabled]="loginForm.invalid">Se Connecter</button>
+       <div *ngIf="errorMessage" class="alert alert-danger mt-3" style="border-radius: 20px;">
+      {{ errorMessage }}
+    </div>
+  </form>
+ 
+  </div>
+</div>

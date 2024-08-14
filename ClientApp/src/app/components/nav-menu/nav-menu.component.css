@@ -1,0 +1,48 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14px;
+}
+
+.nav-item {
+  font-weight: bold;
+  border-radius: 40px;
+  font-size:  20px;
+}
+
+.dropdown-menu {
+  background-color: #4dffa934; 
+  border-radius: 30px;
+  border : 0px solid transparent;
+}
+
+.dropdown-item  {
+  margin: 0%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color: #000; 
+  font-weight: 500;
+}
+.dropdown-item:hover {
+  background-color: transparent; 
+  font-weight:bolder;
+}
+
+.btn.active {
+  background-color: #000; 
+  color: #4DFFAA;
+}
+.navbar-collapse {
+  position: relative;
+}
+
+.collapse {
+  display: none;
+}
+.collapse.show {
+  display: block;
+}

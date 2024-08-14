@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="d-flex justify-content-center flex-grow-1">
+      <div class="input-group" style="width: 300px;">
+        <input 
+          name="nom" 
+          class="form-control border border-success" 
+          type="text" 
+          id="nom" 
+          placeholder="Tapez un nom" 
+          required 
+          [(ngModel)]="searchQuery"
+        />
+        <span class="input-group-text bg-transparent">
+          <i class="fa fa-search text-black"></i>
+        </span>
+      </div>
+    </div>
+    <button class="btn green ms-3" [routerLink]="['Form']">Ajouter une utilisateur</button>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <th *ngFor="let key of getKeys(utilisateurs[0])">{{ key }}</th>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let user of filteredItems">
+        <td>{{ user.username }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ typeoptions[user.type] }}</td>
+        <td>{{ user.nom }}</td>
+        <td>
+          <div class="dropdown">
+            <button class="btn bg-white dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            voir les categories
+            </button>
+          <ul  class="dropdown-menu" *ngIf="showcategories">
+            <li *ngFor="let cat of userCategories(user.categories)"><p class="dropdown-item">{{ cat.nom }}</p></li>
+          </ul>
+          </div>
+        </td>
+
+        <td>
+          <button class="btn" [routerLink]="'Form/'+user.id">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="btn" (click)="deleteUtilisateur(user.id)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

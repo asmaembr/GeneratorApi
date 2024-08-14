@@ -1,0 +1,60 @@
+<div class="d-flex align-items-center justify-content-center">
+  <div class="form p-4 shadow-sm inner" style="width: 700px;">
+    <form #utilisateurForm="ngForm" (ngSubmit)="onSubmit(utilisateurForm)" *ngIf="utilisateur">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input [(ngModel)]="utilisateur.username" name="username" class="form-control" type="text" id="username" placeholder="Entrer un username" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input [(ngModel)]="utilisateur.email" name="email" class="form-control" type="email" id="email" placeholder="Entrer un email" required />
+          </div>
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input [(ngModel)]="utilisateur.nom" name="nom" class="form-control" type="text" id="nom" placeholder="Entrer un nom" required />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Mot de Passe</label>
+            <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+            <input [(ngModel)]="utilisateur.password" name="password" class="form-control" type="{{type}}" id="password" placeholder="Entrer un mot de passe" (ngModelChange)="validatePassword($event)" required />
+            <div *ngIf="passwordErrors.length > 0" class="text-danger mt-2">
+              <ul>
+                <li *ngFor="let error of passwordErrors">{{ error }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="type" class="form-label">Type</label>
+            <select [(ngModel)]="utilisateur.type" name="type" class="form-control" id="type" (change)="onTypeChange($event)" required>
+              <option *ngFor="let option of typeOptions; let i = index" [ngValue]="i">{{ option }}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="categories" class="form-label">Categories</label>
+            <div *ngFor="let categorie of categories" class=" d-flex ">
+              <input
+              type="checkbox" 
+              class="form-check-input form-control me-2" 
+              (change)="onCheckboxChange($event, categorie.id)" 
+              [checked]="utilisateur.categories.includes(categorie.id)" 
+              id="{{ categorie.id }}" 
+              name="categories"
+              [disabled]="utilisateur.type === this.typeOptions.indexOf('Administrateur')"/>
+              <label for="{{ categorie.id }}" class="mt-1">{{ categorie.nom }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <button type="submit" class="btn green w-100" [disabled]="utilisateurForm.invalid || passwordErrors.length > 0">{{ utilisateur.id ? 'Mettre à jour' : 'Créer' }}</button>
+      </div>
+    </form>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3" style="border-radius: 20px;">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>

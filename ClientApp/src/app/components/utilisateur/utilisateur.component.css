@@ -1,0 +1,54 @@
+.container {
+  padding: 20px;
+}
+
+.input-group-text {
+border: transparent  !important;
+}
+.table th {
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    padding: 20px;
+     border: 0px;
+  }
+.table td {
+    font-size: large;
+    vertical-align: middle;
+    background-color: transparent;
+    color: black;
+    justify-content: center;
+    border: 0px;
+  }
+.table { 
+    text-align: center;  
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 40px !important;
+    color: black;
+    border: 0px;
+  }
+
+i{
+  font-size: xx-large;
+}
+
+
+.dropdown-menu {
+  background-color: #ffffff; 
+  border : 0px;
+}
+
+.dropdown-item {
+  margin: 0%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color: #000; 
+}
+.dropdown-item:hover {
+  background-color: transparent; 
+  font-weight:500;
+}
+
+

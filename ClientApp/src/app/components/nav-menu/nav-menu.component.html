@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+  <div class="container-fluid">
+    <!-- User Icon with Hover Information -->
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-user text-black" style="font-size: 3rem;"></i> <!-- Font Awesome User Icon -->
+      </button>
+      <ul class="dropdown-menu text-center" aria-labelledby="userDropdown" *ngIf="showUserInfo" >
+        <li *ngIf="loggedInUser"><p class="dropdown-item">{{  loggedInUser.username}}</p></li>
+        <li *ngIf="loggedInUser"><p class="dropdown-item">{{ typeoptions[loggedInUser.type] }}</p></li>
+      </ul>
+    </div>
+
+    <!-- Menu Toggle Button -->
+    <button class="navbar-toggler" type="button" (click)="toggle()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Menu -->
+    <div class="collapse navbar-collapse justify-content-end" [ngClass]="{'show': isExpanded}">
+      <div>
+        <button 
+          *ngFor="let item of navItems" 
+          class="btn nav-item p-3 m-2" 
+          [ngClass]="{'active': selectedItem === item}" 
+          [routerLink]="item.link"
+          (click)="selectItem(item)">
+          {{item.label}}
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
