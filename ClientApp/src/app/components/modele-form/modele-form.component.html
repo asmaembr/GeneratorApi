@@ -1,0 +1,28 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="form p-4 shadow-sm inner" style="height:fit-content;  width: 500px;">
+      <form #modeleForm="ngForm" (ngSubmit)="onSubmit(modeleForm)" *ngIf="modele">
+            <div class="mb-3">
+              <label for="nom" class="form-label">Nom</label>
+              <input [(ngModel)]="modele.nom" name="nom" class="form-control" type="text" id="nom" placeholder="Entrer un nom" required />
+            </div>
+            <div class="mb-3">
+                <label for="type" class="form-label">Type</label>
+                <select [(ngModel)]="modele.type" name="type" class="form-control" id="type" (change)="onTypeChange($event)" required>
+                  <option *ngFor="let option of types; let i = index" [ngValue]="types.indexOf(option)">{{ option }}</option>
+                </select>
+            </div> 
+            <div class="mb-3">
+              <label for="categorie" class="form-label">Categorie</label>
+              <select [(ngModel)]="modele.categorieId" name="categorie" class="form-control" id="categorie" required>
+                <option *ngFor="let category of categories" [ngValue]="category.id">{{ category.nom }}</option>
+              </select>
+            </div>
+        <div class="text-center mt-3">
+          <button type="submit" class="btn green w-100" [disabled]="modeleForm.invalid">{{ modele.id ? 'Mettre à jour' : 'Créer' }}</button>
+        </div>
+      </form>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3" style="border-radius: 20px;">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>

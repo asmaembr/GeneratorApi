@@ -1,0 +1,63 @@
+  
+.sidebar {
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    width: 400px;
+    height: 600px;
+    border-radius: 30px ;
+    padding-top: 20px ;
+    padding-bottom: 20px ;
+  }
+
+  .buttons{
+    overflow-y: auto;
+    justify-content: center;
+  }
+
+.card  {
+  width: 200px;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  text-align: center;
+  border: 0px solid transparent;
+}
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .input-group-text {
+  border: transparent  !important;
+  }
+  
+  i{
+    font-size: xx-large;
+  }
+  
+
+  .editor {
+    width: 600px;
+    height: 600px;
+    flex-direction: column;
+    display: flex;
+    border-radius: 40px ; 
+  }
+  
+ 
+
+  textarea  {
+    margin: 15px;
+    width: 95%;
+    height: 95%;
+    font-size: large;
+    padding: 10px;
+    resize: none;
+    border: none;
+    outline: none;
+  }
+
+
+  

@@ -1,0 +1,63 @@
+
+<div class="d-flex gap-5 align-items-center justify-content-center">
+  <div class="sidebar inner ">
+    <div class="input-group" style="width: 300px;">
+      <input 
+          name="nom" 
+          class="form-control border border-success" 
+          type="text" 
+          id="nom" 
+          placeholder="Tapez un nom" 
+          required 
+          [(ngModel)]="searchQuery"
+        />
+        <span class="input-group-text bg-transparent">
+          <i class="fa fa-search text-black"></i>
+        </span>
+      </div> 
+
+      <div class="buttons">
+      <button
+        (click)="addVariable(variable)"
+       class="btn btn-success card" 
+       *ngFor="let variable of filteredItems"
+       >
+          <h5 class="card-body">{{variable.nom}}</h5>
+          <p class="card-body p-1">{{natures[variable.nature]}}</p>
+      </button>
+      </div>
+      <div class="m-3 d-flex">
+        <input 
+        [(ngModel)]="modele.publier" 
+        (change)="onPublierChange($event)"
+        [checked]="modele.publier"
+        name="publier"
+        class="form-check-input form-control me-2"
+        type="checkbox" 
+        id="publier" />
+        <label for="publier" class="form-label mt-1 text-success ">Publier</label>
+      </div>
+
+  </div>
+  <form #modeleform="ngForm" (ngSubmit)="onSubmit(modeleform)" *ngIf="modele">
+<div class="editor inner">
+
+  <textarea 
+  class="form-control" 
+  [(ngModel)]="modele.contenu" 
+  (input)="onContentChange($event)" 
+  name="contenu" 
+  id="contenu">
+</textarea>
+
+  <button 
+  type="submit"
+  [disabled]="modeleform.invalid"
+  class="btn green m-4">
+  {{ modele.id ? 'Mettre à jour' : 'Créer' }}
+  </button>
+
+</div>
+</form>
+
+</div>

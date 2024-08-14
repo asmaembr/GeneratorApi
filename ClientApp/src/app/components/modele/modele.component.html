@@ -1,0 +1,99 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="d-flex justify-content-center flex-grow-1">
+      <div class="input-group" style="width: 300px;">
+        <input 
+          name="nom" 
+          class="form-control border border-success" 
+          type="text" 
+          id="nom" 
+          placeholder="Tapez un nom" 
+          required 
+          [(ngModel)]="searchQuery"
+        />
+        <span class="input-group-text bg-transparent">
+          <i class="fa fa-search text-black"></i>
+        </span>
+      </div>
+    </div>
+    <button class="btn green ms-3" [routerLink]="['Form']">Ajouter un Modele</button>
+  </div>
+
+  <!-- Courriel Row -->
+
+ <h4 style=" 
+    text-align: center;
+    color: green ;
+    text-underline-position: below;
+    text-underline-offset: 5px;
+    text-decoration: underline;
+    margin-top: 15px;
+    margin-bottom:10px ;
+    ">Courriels</h4>
+    <div class="d-flex scroll-container overflow-x-auto">
+      <div class="card-container m-3" *ngFor="let modele of filteredCourriel">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <h5 class="card-title m-3">{{ modele.nom }}</h5>
+              <i 
+                class="fa fa-check-circle"
+                [ngClass]="{'text-success': modele.publier, 'text-primary': !modele.publier}">
+              </i>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text"><strong>Catégorie :</strong> {{ getCategorie(modele.categorieId) }} </p>
+            <p class="card-text"><strong>Type:</strong> {{ types[modele.type] }} </p>
+          </div>
+          <div class="card-footer">
+            <button class="btn" [routerLink]="'Form/'+modele.id">
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button class="btn" (click)="deleteModele(modele.id)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Lettre Row -->
+  <h4 style=" 
+      text-align: center;
+      color: green ;
+      text-underline-position: below;
+      text-underline-offset: 5px;
+      text-decoration: underline;
+      margin-top: 15px;
+      margin-bottom:10px ;
+      ">Lettres</h4>
+    <div class="d-flex scroll-container overflow-x-auto">
+      <div class="card-container m-3" *ngFor="let modele of filteredLettre">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <h5 class="card-title m-3">{{ modele.nom }}</h5>
+              <i 
+                class="fa fa-check-circle"
+                [ngClass]="{'text-success': modele.publier, 'text-primary': !modele.publier}">
+              </i>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text"><strong>Catégorie :</strong> {{ getCategorie(modele.categorieId) }} </p>
+            <p class="card-text"><strong>Type:</strong> {{ types[modele.type] }} </p>
+          </div>
+          <div class="card-footer">
+            <button class="btn" [routerLink]="'Form/'+modele.id">
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button class="btn" (click)="deleteModele(modele.id)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+</div>
