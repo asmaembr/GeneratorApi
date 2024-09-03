@@ -5,6 +5,12 @@
 .input-group-text {
 border: transparent  !important;
 }
+
+.password-cell {
+  font-family: 'password'; 
+  -webkit-text-security: disc;
+}
+
 .table th {
     background-color: transparent;
     color: black;

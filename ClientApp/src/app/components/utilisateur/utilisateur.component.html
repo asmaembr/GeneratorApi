@@ -26,8 +26,8 @@
     <tbody class="tbody">
       <tr *ngFor="let user of filteredItems">
         <td>{{ user.username }}</td>
-        <td>{{ user.password }}</td>
-        <td>{{ user.email }}</td>
+        <td>{{ user.password}}</td>
+        <td class="password-cell" >{{ user.email }}</td>
         <td>{{ typeoptions[user.type] }}</td>
         <td>{{ user.nom }}</td>
         <td>

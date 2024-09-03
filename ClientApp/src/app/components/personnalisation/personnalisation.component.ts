@@ -35,19 +35,21 @@ export class PersonnalisationComponent implements OnInit {
     this.user = this.authservice.getUser()!;
     this.variableService.getVariables(this.user).subscribe({
       next: (data: Variable[]) => {
-        this.variables = data.filter((v) => this.modele?.variables.includes(v.id));
-        this.extractVariableIds(this.modele?.contenu!).forEach((id) => {
-          const variable = this.variables.find((v) => v.id.toString() === id);
-          if (variable && variable.formule ==='') {
-           this.variablesform.push({ ...variable });
+        this.variables = data.filter(variable => this.modele?.variables.includes(variable.id));
+        console.log(this.variables);
+        this.variables.forEach(variable1 =>{ 
+          if(variable1 && variable1.formule == ""){
+            this.variablesform.push(variable1);
           }
-
-        });
+        }
+        );
+        console.log(this.variablesform);
       },
       error: () => this.errorMessage = "Variables introuvables."
     });
   }
   
+
 
 private extractVariableIds(content: string): string[] {
     const variableids: string[] = [];

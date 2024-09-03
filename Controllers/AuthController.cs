@@ -46,8 +46,6 @@ namespace generator_API.Controllers
             else if( aeshelper.Decrypt(user.PasswordHash) == model.Password){
                 
                 string  token = TokenHelper.CreateToken(user);
-                Console.WriteLine(user.GetType().Name);
-
                  var dto = new LoggedInDto
                 {  
                     Username = user.UserName,

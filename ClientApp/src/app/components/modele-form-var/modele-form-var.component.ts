@@ -127,7 +127,7 @@ private replaceVariableNameWithId(content: string, variables: Variable[]): strin
   onSubmit(form: NgForm): void {
 
     const names = this.extractVariableName(this.modele.contenu);
-
+    this.modele.variables = [];
     names.forEach(nom => {
     const variable = this.variables.find(v => v.nom === nom);
     if (variable && !this.modele.variables.includes(variable.id)) {
