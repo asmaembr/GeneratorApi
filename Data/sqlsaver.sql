@@ -1,9 +1,9 @@
 INSERT INTO [generator].[dbo].[Categories] ([Nom], [Description])
 VALUES 
-('D�partement RH', 'D�partement des Ressources Humaines (RH)'),
-('D�partement RnD', 'D�partement de Recherche et D�veloppement (RnD)'),
-('D�partement IT', 'D�partement Informatique (IT)'),
-('D�partement Financier', 'D�partement Financier');
+('Departement RH', 'Departement des Ressources Humaines (RH)'),
+('Departement RnD', 'Departement de Recherche et Developpement (RnD)'),
+('Departement IT', 'Departement Informatique (IT)'),
+('Departement Financier', 'Departement Financier');
 
 INSERT INTO [generator].[dbo].[AspNetUsers] 
 (
