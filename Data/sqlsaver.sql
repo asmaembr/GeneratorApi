@@ -1,11 +1,9 @@
 INSERT INTO [generator].[dbo].[Categories] ([Nom], [Description])
 VALUES 
-('Département RH', 'Département des Ressources Humaines (RH)'),
-('Département RnD', 'Département de Recherche et Développement (RnD)'),
-('Département IT', 'Département Informatique (IT)'),
-('Département Financier', 'Département Financier'),
-('Département Service Client', 'Département Service Client'),
-('Département Juridique', 'Département Juridique');
+('Dï¿½partement RH', 'Dï¿½partement des Ressources Humaines (RH)'),
+('Dï¿½partement RnD', 'Dï¿½partement de Recherche et Dï¿½veloppement (RnD)'),
+('Dï¿½partement IT', 'Dï¿½partement Informatique (IT)'),
+('Dï¿½partement Financier', 'Dï¿½partement Financier');
 
 INSERT INTO [generator].[dbo].[AspNetUsers] 
 (
@@ -47,3 +45,6 @@ VALUES
     0,                                     -- LockoutEnabled (0 means not enabled)
     0                                      -- AccessFailedCount
 );
+
+-- username : mbrasmae
+-- password : Asmae123-
