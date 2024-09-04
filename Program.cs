@@ -11,7 +11,7 @@ using Microsoft.OpenApi.Models;
 /**
     * AUTEUR : Asmae MOUBARRIZ 
     * DATE : 01/08/2024
-    * PROJET : Projet 4IIR - Générateur de courrier et de lettre 
+    * PROJET : Projet Stage - Générateur de courrier et de lettre 
     */
 
 var builder = WebApplication.CreateBuilder(args);
